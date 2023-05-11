@@ -1,0 +1,16 @@
+D:\Mauricio\repo\almacen\src\main\java\com\miproyecto\almacen\modelo\Marca.java
+D:\Mauricio\repo\almacen\src\main\java\com\miproyecto\almacen\servicio\ImpMarcaService.java
+D:\Mauricio\repo\almacen\src\main\java\com\miproyecto\almacen\modelo\LineaDeVenta.java
+D:\Mauricio\repo\almacen\src\main\java\com\miproyecto\almacen\modelo\Venta.java
+D:\Mauricio\repo\almacen\src\main\java\com\miproyecto\almacen\dto\MarcaDTO.java
+D:\Mauricio\repo\almacen\src\main\java\com\miproyecto\almacen\servicio\ImpRubroService.java
+D:\Mauricio\repo\almacen\src\main\java\com\miproyecto\almacen\AlmacenApplication.java
+D:\Mauricio\repo\almacen\src\main\java\com\miproyecto\almacen\servicio\contratos\IRubroService.java
+D:\Mauricio\repo\almacen\src\main\java\com\miproyecto\almacen\repositorio\IMarcaRepository.java
+D:\Mauricio\repo\almacen\src\main\java\com\miproyecto\almacen\modelo\Rubro.java
+D:\Mauricio\repo\almacen\src\main\java\com\miproyecto\almacen\repositorio\IRubroRepository.java
+D:\Mauricio\repo\almacen\src\main\java\com\miproyecto\almacen\controlador\RubroControlador.java
+D:\Mauricio\repo\almacen\src\main\java\com\miproyecto\almacen\controlador\MarcaControlador.java
+D:\Mauricio\repo\almacen\src\main\java\com\miproyecto\almacen\servicio\contratos\IMarcaService.java
+D:\Mauricio\repo\almacen\src\main\java\com\miproyecto\almacen\dto\RubroDTO.java
+D:\Mauricio\repo\almacen\src\main\java\com\miproyecto\almacen\modelo\Producto.java
