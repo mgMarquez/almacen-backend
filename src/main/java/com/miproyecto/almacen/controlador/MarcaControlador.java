@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/Marca")
+@RequestMapping("api/marca")
 public class MarcaControlador {
 
     @Autowired
     private ImpMarcaService service;
 
-    @GetMapping
+    @GetMapping()
     public List<MarcaDTO> getAllMarcas() {
         return service.findAllMarca();
     }
