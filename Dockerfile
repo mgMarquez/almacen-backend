@@ -1,5 +1,5 @@
-FROM openjdk:17-alpine
-MAINTAINER MGMarquez
-COPY target/almacen-0.0.1-SNAPSHOT.jar almacen.jar
+FROM amazoncorretto:18-alpine-jdk
+MAINTAINER MLM
+COPY target/mlm-0.0.1-SNAPSHOT.jar  app.jar
+ENTRYPOINT ["java","-jar","/app.jar"]
 EXPOSE 8080
-ENTRYPOINT ["java","-jar","/almacen.jar"]
