@@ -16,7 +16,6 @@ public class ProductoControlador {
 
     @PostMapping("/create")
     public ProductoDTO createProducto(@RequestBody ProductoDTO productoDTO) {
-        System.out.println(productoDTO);
         return service.saveProducto(productoDTO);
     }
     @GetMapping
