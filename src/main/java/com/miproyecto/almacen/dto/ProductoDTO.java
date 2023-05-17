@@ -1,6 +1,5 @@
 package com.miproyecto.almacen.dto;
 
-import lombok.Builder;
 import lombok.Data;
 
 @Data
