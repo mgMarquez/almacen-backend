@@ -13,12 +13,13 @@ public class Producto {
     private Long id;
     private String nombre;
     private String descripcion;
-    @ManyToOne
-    @JoinColumn(name = "marca_id")
-    private Marca marca;
-    @ManyToOne
-    @JoinColumn(name = "rubro_id")
-    private Rubro rubro;
     private int cantidadEnStock;
     private Long precio;
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "marca_id")
+    private Marca marca;
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "rubro_id")
+    private Rubro rubro;
+
 }
