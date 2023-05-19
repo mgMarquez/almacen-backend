@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/rubro")
+@RequestMapping("api/rubros")
 public class RubroControlador {
     @Autowired
     private ImpRubroService service;

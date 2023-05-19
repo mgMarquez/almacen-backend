@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/marca")
+@RequestMapping("api/marcas")
 public class MarcaControlador {
 
     @Autowired
@@ -24,8 +24,18 @@ public class MarcaControlador {
         return service.findMarcaById(marcaId);
     }
 
-    @PostMapping("/create")
+    @PostMapping()
     public MarcaDTO createMarca(@RequestBody MarcaDTO marcaDTO) {
         return service.saveMarca(marcaDTO);
+    }
+
+    @PutMapping("/{marcaId}")
+    public MarcaDTO updateMarca(@RequestBody MarcaDTO marcaDTO, @PathVariable Long marcaId) {
+        return service.updateMarca(marcaId, marcaDTO);
+    }
+
+    @DeleteMapping("/{marcaId}")
+    public void deleteMarca(@PathVariable Long marcaId) {
+        service.deleteMarca(marcaId);
     }
 }
