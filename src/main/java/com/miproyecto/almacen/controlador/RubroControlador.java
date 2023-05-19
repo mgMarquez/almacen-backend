@@ -14,15 +14,27 @@ public class RubroControlador {
     private ImpRubroService service;
 
     @GetMapping
-    public List<RubroDTO> findAllRubros() {
+    public List<RubroDTO> getAllRubros() {
         return service.findAllRubro();
     }
+
     @GetMapping("/{rubroId}")
-    public RubroDTO findRubroById(@PathVariable Long rubroId) {
+    public RubroDTO getRubroById(@PathVariable Long rubroId) {
         return service.findRubroById(rubroId);
     }
-    @PostMapping("/create")
+
+    @PostMapping()
     public RubroDTO createRubro(@RequestBody RubroDTO rubroDTO) {
         return service.saveRubro(rubroDTO);
+    }
+
+    @PutMapping("/{rubroId}")
+    public RubroDTO updateRubro(@RequestBody RubroDTO rubroDTO, @PathVariable Long rubroId) {
+        return service.updateRubro(rubroId, rubroDTO);
+    }
+
+    @DeleteMapping("/{rubroId}")
+    public void deleteRubro(@PathVariable Long rubroId) {
+        service.deleteRubro(rubroId);
     }
 }
