@@ -55,12 +55,14 @@ public class ImpProductoService implements IProductoService {
 
     @Override
     public ProductoDTO updateProducto(Long productoId, ProductoDTO productoDTO) {
-        return null;
+        Producto producto = mapearEntidad(productoDTO);
+        Producto productoNuevo = repo.save(producto);
+        return mapearDTO(productoNuevo);
     }
 
     @Override
     public void deleteProducto(Long productoId) {
-
+        repo.deleteById(productoId);
     }
 
     private ProductoDTO mapearDTO(Producto producto) {
