@@ -14,7 +14,7 @@ public class ProductoControlador {
     @Autowired
     private ImpProductoService service;
 
-    @PostMapping("/create")
+    @PostMapping()
     public ProductoDTO createProducto(@RequestBody ProductoDTO productoDTO) {
         return service.saveProducto(productoDTO);
     }
@@ -23,5 +23,18 @@ public class ProductoControlador {
         return service.findAllProducto();
     }
 
+    @GetMapping("/{productoUd}")
+    public ProductoDTO getProductoById(@PathVariable Long productoId) {
+        return service.findProductoById(productoId);
+    }
 
+    @PutMapping("/{productoId}")
+    public ProductoDTO updateProducto(@PathVariable Long productoId, @RequestBody ProductoDTO productoDTO) {
+        return service.updateProducto(productoId, productoDTO);
+    }
+
+    @DeleteMapping("/{productoId}")
+    public void deleteProducto(@PathVariable Long productoId) {
+        service.deleteProducto(productoId);
+    }
 }
