@@ -23,7 +23,7 @@ public class ProductoControlador {
         return service.findAllProducto();
     }
 
-    @GetMapping("/{productoUd}")
+    @GetMapping("/{productoId}")
     public ProductoDTO getProductoById(@PathVariable Long productoId) {
         return service.findProductoById(productoId);
     }
