@@ -3,6 +3,8 @@ package com.miproyecto.almacen.controlador;
 import com.miproyecto.almacen.dto.MarcaDTO;
 import com.miproyecto.almacen.servicio.MarcaService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -12,29 +14,36 @@ import java.util.List;
 public class MarcaControlador {
 
     @Autowired
-    private MarcaService service;
+    private MarcaService marcaService;
 
     @GetMapping()
-    public List<MarcaDTO> getAllMarcas() {
-        return service.findAllMarca();
+    public ResponseEntity<List<MarcaDTO>> getAllMarcas() {
+        List<MarcaDTO> marcaDTOList = marcaService.findAllMarca();
+        return new ResponseEntity<>(marcaDTOList, HttpStatus.OK);
     }
     @GetMapping("/{marcaId}")
-    public MarcaDTO getMarcaById(@PathVariable Long marcaId) {
-        return service.findMarcaById(marcaId);
+    public ResponseEntity<MarcaDTO> getMarcaById(@PathVariable Long marcaId) {
+        MarcaDTO marcaDTO = marcaService.findMarcaById(marcaId);
+        if(marcaDTO == null)
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(marcaDTO, HttpStatus.OK);
     }
 
     @PostMapping()
-    public MarcaDTO createMarca(@RequestBody MarcaDTO marcaDTO) {
-        return service.saveMarca(marcaDTO);
+    public ResponseEntity<MarcaDTO> createMarca(@RequestBody MarcaDTO marcaDTO) {
+        MarcaDTO marcaDTOnueva = marcaService.saveMarca(marcaDTO);
+        return new ResponseEntity<>(marcaDTOnueva, HttpStatus.CREATED);
     }
 
     @PutMapping("/{marcaId}")
-    public MarcaDTO updateMarca(@RequestBody MarcaDTO marcaDTO, @PathVariable Long marcaId) {
-        return service.updateMarca(marcaId, marcaDTO);
+    public ResponseEntity<MarcaDTO> updateMarca(@RequestBody MarcaDTO marcaDTO, @PathVariable Long marcaId) {
+        MarcaDTO marcaDTOactualizada = marcaService.updateMarca(marcaId, marcaDTO);
+        return new ResponseEntity<>(marcaDTOactualizada, HttpStatus.OK);
     }
 
     @DeleteMapping("/{marcaId}")
-    public void deleteMarca(@PathVariable Long marcaId) {
-        service.deleteMarca(marcaId);
+    public ResponseEntity<Void> deleteMarca(@PathVariable Long marcaId) {
+        marcaService.deleteMarca(marcaId);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }
