@@ -14,26 +14,26 @@ import java.util.stream.Collectors;
 @Service
 public class MarcaServiceImpl implements MarcaService {
     @Autowired
-    private MarcaRepository repo;
+    private MarcaRepository marcaRepository;
     @Autowired
     private ModelMapper modelMapper;
 
     @Override
     public MarcaDTO saveMarca(MarcaDTO marcaDTO) {
         Marca marca = mapearEntidad(marcaDTO);
-        Marca nuevaMarca = repo.save(marca);
+        Marca nuevaMarca = marcaRepository.save(marca);
         return mapearDTO(nuevaMarca);
     }
 
     @Override
     public MarcaDTO findMarcaById(Long marcaId) {
-        Marca marca = repo.findById(marcaId).orElse(null);
-        return mapearDTO(marca);
+        Marca marca = marcaRepository.findById(marcaId).orElse(null);
+        return marca != null? mapearDTO(marca) : null;
     }
 
     @Override
     public List<MarcaDTO> findAllMarca() {
-        List<Marca> marcas = repo.findAll();
+        List<Marca> marcas = marcaRepository.findAll();
         return marcas
                 .stream()
                 .map(this::mapearDTO)
@@ -44,13 +44,13 @@ public class MarcaServiceImpl implements MarcaService {
     public MarcaDTO updateMarca(Long marcaId, MarcaDTO marcaDTO) {
         marcaDTO.setId(marcaId);
         Marca marca = mapearEntidad(marcaDTO);
-        Marca marcaActualizada = repo.save(marca);
+        Marca marcaActualizada = marcaRepository.save(marca);
         return mapearDTO(marcaActualizada);
     }
 
     @Override
     public void deleteMarca(Long marcaId) {
-        repo.deleteById(marcaId);
+        marcaRepository.deleteById(marcaId);
     }
 
     private MarcaDTO mapearDTO(Marca marca) {
