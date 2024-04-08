@@ -2,6 +2,7 @@ package com.miproyecto.almacen.controlador;
 
 import com.miproyecto.almacen.dto.ProductoDTO;
 import com.miproyecto.almacen.servicio.ImpProductoService;
+import com.miproyecto.almacen.servicio.contratos.IProductoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,7 +13,7 @@ import java.util.List;
 public class ProductoControlador {
 
     @Autowired
-    private ImpProductoService service;
+    private IProductoService service;
 
     @PostMapping()
     public ProductoDTO createProducto(@RequestBody ProductoDTO productoDTO) {

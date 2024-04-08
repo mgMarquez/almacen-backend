@@ -2,6 +2,7 @@ package com.miproyecto.almacen.controlador;
 
 import com.miproyecto.almacen.dto.MarcaDTO;
 import com.miproyecto.almacen.servicio.ImpMarcaService;
+import com.miproyecto.almacen.servicio.contratos.IMarcaService;
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -13,7 +14,7 @@ import java.util.List;
 public class MarcaControlador {
 
     @Autowired
-    private ImpMarcaService service;
+    private IMarcaService service;
 
     @GetMapping()
     public List<MarcaDTO> getAllMarcas() {
