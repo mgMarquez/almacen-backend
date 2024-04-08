@@ -1,9 +1,9 @@
-package com.miproyecto.almacen.servicio;
+package com.miproyecto.almacen.servicio.impl;
 
 import com.miproyecto.almacen.dto.RubroDTO;
 import com.miproyecto.almacen.modelo.Rubro;
-import com.miproyecto.almacen.repositorio.IRubroRepository;
-import com.miproyecto.almacen.servicio.contratos.IRubroService;
+import com.miproyecto.almacen.repositorio.RubroRepository;
+import com.miproyecto.almacen.servicio.RubroService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,9 +12,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class ImpRubroService implements IRubroService {
+public class RubroServiceImpl implements RubroService {
     @Autowired
-    private IRubroRepository repo;
+    private RubroRepository repo;
     @Autowired
     private ModelMapper modelMapper;
     

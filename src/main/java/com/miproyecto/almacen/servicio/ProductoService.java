@@ -1,10 +1,10 @@
-package com.miproyecto.almacen.servicio.contratos;
+package com.miproyecto.almacen.servicio;
 
 import com.miproyecto.almacen.dto.ProductoDTO;
 
 import java.util.List;
 
-public interface IProductoService {
+public interface ProductoService {
 
     ProductoDTO saveProducto(ProductoDTO productoDTO);
     ProductoDTO findProductoById(Long productoId);

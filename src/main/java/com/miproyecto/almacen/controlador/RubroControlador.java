@@ -1,8 +1,7 @@
 package com.miproyecto.almacen.controlador;
 
 import com.miproyecto.almacen.dto.RubroDTO;
-import com.miproyecto.almacen.servicio.ImpRubroService;
-import com.miproyecto.almacen.servicio.contratos.IRubroService;
+import com.miproyecto.almacen.servicio.RubroService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,7 +11,7 @@ import java.util.List;
 @RequestMapping("api/rubros")
 public class RubroControlador {
     @Autowired
-    private IRubroService service;
+    private RubroService service;
 
     @GetMapping
     public List<RubroDTO> getAllRubros() {

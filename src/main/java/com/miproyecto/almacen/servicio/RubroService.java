@@ -1,10 +1,10 @@
-package com.miproyecto.almacen.servicio.contratos;
+package com.miproyecto.almacen.servicio;
 
 import com.miproyecto.almacen.dto.RubroDTO;
 
 import java.util.List;
 
-public interface IRubroService {
+public interface RubroService {
     RubroDTO saveRubro(RubroDTO rubroDTO);
     RubroDTO findRubroById(Long rubroId);
     List<RubroDTO> findAllRubro();

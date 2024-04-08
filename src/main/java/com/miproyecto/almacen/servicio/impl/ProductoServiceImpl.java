@@ -1,13 +1,13 @@
-package com.miproyecto.almacen.servicio;
+package com.miproyecto.almacen.servicio.impl;
 
 import com.miproyecto.almacen.dto.ProductoDTO;
 import com.miproyecto.almacen.modelo.Marca;
 import com.miproyecto.almacen.modelo.Producto;
 import com.miproyecto.almacen.modelo.Rubro;
-import com.miproyecto.almacen.repositorio.IMarcaRepository;
-import com.miproyecto.almacen.repositorio.IProductoRepository;
-import com.miproyecto.almacen.repositorio.IRubroRepository;
-import com.miproyecto.almacen.servicio.contratos.IProductoService;
+import com.miproyecto.almacen.repositorio.MarcaRepository;
+import com.miproyecto.almacen.repositorio.ProductoRepository;
+import com.miproyecto.almacen.repositorio.RubroRepository;
+import com.miproyecto.almacen.servicio.ProductoService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,16 +16,16 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class ImpProductoService implements IProductoService {
+public class ProductoServiceImpl implements ProductoService {
 
     @Autowired
     private ModelMapper modelMapper;
     @Autowired
-    private IProductoRepository repo;
+    private ProductoRepository repo;
     @Autowired
-    private IMarcaRepository repoMarca;
+    private MarcaRepository repoMarca;
     @Autowired
-    private IRubroRepository repoRubro;
+    private RubroRepository repoRubro;
 
     @Override
     public ProductoDTO saveProducto(ProductoDTO productoDTO) {

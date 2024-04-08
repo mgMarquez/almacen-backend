@@ -1,9 +1,9 @@
-package com.miproyecto.almacen.servicio;
+package com.miproyecto.almacen.servicio.impl;
 
 import com.miproyecto.almacen.dto.MarcaDTO;
 import com.miproyecto.almacen.modelo.Marca;
-import com.miproyecto.almacen.repositorio.IMarcaRepository;
-import com.miproyecto.almacen.servicio.contratos.IMarcaService;
+import com.miproyecto.almacen.repositorio.MarcaRepository;
+import com.miproyecto.almacen.servicio.MarcaService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,9 +12,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class ImpMarcaService implements IMarcaService {
+public class MarcaServiceImpl implements MarcaService {
     @Autowired
-    private IMarcaRepository repo;
+    private MarcaRepository repo;
     @Autowired
     private ModelMapper modelMapper;
 
