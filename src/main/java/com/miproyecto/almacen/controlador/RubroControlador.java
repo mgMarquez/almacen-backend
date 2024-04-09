@@ -3,6 +3,8 @@ package com.miproyecto.almacen.controlador;
 import com.miproyecto.almacen.dto.RubroDTO;
 import com.miproyecto.almacen.servicio.RubroService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -11,30 +13,37 @@ import java.util.List;
 @RequestMapping("api/rubros")
 public class RubroControlador {
     @Autowired
-    private RubroService service;
+    private RubroService rubroService;
 
     @GetMapping
-    public List<RubroDTO> getAllRubros() {
-        return service.findAllRubro();
+    public ResponseEntity<List<RubroDTO>> getAllRubros() {
+        List<RubroDTO> rubroDTOList = rubroService.findAllRubro();
+        return  new ResponseEntity<>(rubroDTOList, HttpStatus.OK);
     }
 
     @GetMapping("/{rubroId}")
-    public RubroDTO getRubroById(@PathVariable Long rubroId) {
-        return service.findRubroById(rubroId);
+    public ResponseEntity<RubroDTO> getRubroById(@PathVariable Long rubroId) {
+        RubroDTO rubroDTO = rubroService.findRubroById(rubroId);
+        return rubroDTO == null ?
+                new ResponseEntity<>(HttpStatus.NOT_FOUND) :
+                new ResponseEntity<>(rubroDTO, HttpStatus.OK);
     }
 
     @PostMapping()
-    public RubroDTO createRubro(@RequestBody RubroDTO rubroDTO) {
-        return service.saveRubro(rubroDTO);
+    public ResponseEntity<RubroDTO> createRubro(@RequestBody RubroDTO rubroDTO) {
+        RubroDTO rubroDTOnuevo = rubroService.saveRubro(rubroDTO);
+        return new ResponseEntity<>(rubroDTOnuevo, HttpStatus.CREATED);
     }
 
     @PutMapping("/{rubroId}")
-    public RubroDTO updateRubro(@RequestBody RubroDTO rubroDTO, @PathVariable Long rubroId) {
-        return service.updateRubro(rubroId, rubroDTO);
+    public ResponseEntity<RubroDTO> updateRubro(@RequestBody RubroDTO rubroDTO, @PathVariable Long rubroId) {
+        RubroDTO rubroDTOactualizado = rubroService.updateRubro(rubroId, rubroDTO);
+        return new ResponseEntity<>(rubroDTOactualizado, HttpStatus.OK);
     }
 
     @DeleteMapping("/{rubroId}")
-    public void deleteRubro(@PathVariable Long rubroId) {
-        service.deleteRubro(rubroId);
+    public ResponseEntity<Void> deleteRubro(@PathVariable Long rubroId) {
+        rubroService.deleteRubro(rubroId);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }
